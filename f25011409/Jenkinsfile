@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps { checkout scm }
+        }
+        stage('Install dependencies') {
+            steps {
+                dir('qwen3-local') {
+                    bat 'python -m pip install -r requirements.txt'
+                }
+            }
+        }
+        stage('Validate Python files') {
+            steps {
+                dir('qwen3-local') {
+                    bat 'python -m compileall -q chat_cli.py web_app.py model_runtime.py download_model.py'
+                }
+            }
+        }
+        stage('Deploy') {
+            when { branch 'main' }
+            steps {
+                echo 'Deploy stage placeholder: configure a test server and credentials before enabling deployment.'
+            }
+        }
+    }
+    post {
+        always { echo 'Pipeline finished. Review stage logs before release.' }
+    }
+}
