@@ -7,16 +7,12 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                dir('qwen3-local') {
-                    bat 'python -m pip install -r requirements.txt'
-                }
+                bat 'python -m pip install -r f25011409/requirements.txt'
             }
         }
         stage('Validate Python files') {
             steps {
-                dir('qwen3-local') {
-                    bat 'python -m compileall -q chat_cli.py web_app.py model_runtime.py download_model.py'
-                }
+                bat 'python -m compileall -q f25011409/chat_cli.py f25011409/web_app.py f25011409/model_runtime.py f25011409/download_model.py'
             }
         }
         stage('Deploy') {
