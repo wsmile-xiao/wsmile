@@ -53,6 +53,8 @@ streamlit run web_app.py
 - `requirements.txt`：Python 依赖；PyTorch 根据本机设备单独安装
 - `Jenkinsfile`：依赖安装和 Python 语法检查示例；部署步骤需配置测试服务器后再启用
 - `0920作业.md`：第 1 项开源模型部署调用方案和第 2 项自动发布方式调研
+- `0922作业.md`：Ollama 模型调用、接口差异、外挂能力和实测记录
+- `ollama_service.py`：将本地 Ollama 模型包装为原生及 OpenAI 兼容 HTTP 接口
 
 ## 验证状态
 
